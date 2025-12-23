@@ -21,6 +21,7 @@ const projects = [
     ],
     tags: ['Java', 'Spring Boot', 'PostgreSQL', 'REST'],
     color: 'primary',
+    url: 'https://github.com/FabioFerreiraP/Cadastro-de-alunos'
   },
   {
     title: 'AdoPet',
@@ -35,6 +36,7 @@ const projects = [
     ],
     tags: ['Kotlin', 'XML', 'Firebase', 'Android'],
     color: 'terminal',
+    url: 'https://github.com/FabioFerreiraP/AdoPet'
   },
 ];
 
@@ -68,41 +70,46 @@ export const ProjectsSection = () => {
                   className="card-gradient rounded-xl border border-border overflow-hidden hover-lift group"
                 >
                   {/* Project Header */}
-                  <div className="p-6 border-b border-border">
-                    <div className="flex items-start justify-between mb-4">
-                      <div className="flex items-center gap-3">
-                        <div className={`p-3 rounded-lg bg-secondary border border-border group-hover:border-primary/50 transition-colors`}>
-                          <Icon className="w-6 h-6 text-primary" />
-                        </div>
-                        <div>
-                          <h3 className="font-bold text-lg">{project.title}</h3>
-                          <p className="text-sm text-muted-foreground font-mono">{project.subtitle}</p>
+                  <a href={project.url}
+                  target="_blank"
+                  rel="noopener noreferrer">
+                    <div className="p-6 border-b border-border">
+                      <div className="flex items-start justify-between mb-4">
+                        <div className="flex items-center gap-3">
+                          <div className={`p-3 rounded-lg bg-secondary border border-border group-hover:border-primary/50 transition-colors`}>
+                            <Icon className="w-6 h-6 text-primary" />
+                          </div>
+                          <div>
+                            <h3 className="font-bold text-lg">{project.title}</h3>
+                            <p className="text-sm text-muted-foreground font-mono">{project.subtitle}</p>
+                          </div>
                         </div>
                       </div>
+                      <p className="text-muted-foreground">{project.description}</p>
                     </div>
-                    <p className="text-muted-foreground">{project.description}</p>
-                  </div>
+                  
 
-                  {/* Features */}
-                  <div className="p-6 bg-secondary/30">
-                    <ul className="grid grid-cols-2 gap-2 mb-4">
-                      {project.features.map((feature) => (
-                        <li key={feature} className="flex items-center gap-2 text-sm text-muted-foreground">
-                          <span className="w-1.5 h-1.5 rounded-full bg-primary" />
-                          {feature}
-                        </li>
-                      ))}
-                    </ul>
+                    {/* Features */}
+                    <div className="p-6 bg-secondary/30">
+                      <ul className="grid grid-cols-2 gap-2 mb-4">
+                        {project.features.map((feature) => (
+                          <li key={feature} className="flex items-center gap-2 text-sm text-muted-foreground">
+                            <span className="w-1.5 h-1.5 rounded-full bg-primary" />
+                            {feature}
+                          </li>
+                        ))}
+                      </ul>
 
-                    {/* Tags */}
-                    <div className="flex flex-wrap gap-2">
-                      {project.tags.map((tag) => (
-                        <span key={tag} className="tech-badge text-xs">
-                          {tag}
-                        </span>
-                      ))}
+                      {/* Tags */}
+                      <div className="flex flex-wrap gap-2">
+                        {project.tags.map((tag) => (
+                          <span key={tag} className="tech-badge text-xs">
+                            {tag}
+                          </span>
+                        ))}
+                      </div>
                     </div>
-                  </div>
+                  </a>
                 </div>
               );
             })}
